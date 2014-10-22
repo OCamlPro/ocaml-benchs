@@ -1,0 +1,12 @@
+bin: [
+  "chameneos-redux/chameneos_redux_th"
+  "chameneos-redux/chameneos_redux_evtchn"
+  "chameneos-redux/chameneos_redux_lwt"
+  "chameneos-redux/chameneos_redux_async"
+  "lexifi-g2pp/run.exe" {"lexifi-g2pp"}
+  "sauvola/contrast" {"sauvola-contrast"}
+]
+
+share: [
+  "sauvola/example2_small.jpg"
+]

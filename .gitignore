@@ -1,0 +1,9 @@
+**/*.o
+**/*.a
+**/*.cm*
+chameneos-redux/chameneos_redux_async
+chameneos-redux/chameneos_redux_evtchn
+chameneos-redux/chameneos_redux_lwt
+chameneos-redux/chameneos_redux_th
+lexifi-g2pp/run.exe
+sauvola/contrast

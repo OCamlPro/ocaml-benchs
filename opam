@@ -1,0 +1,14 @@
+opam-version: "1.2"
+name: "macrobenchmarks"
+version: "1.0"
+maintainer: "Vincent Bernardoff <vincent.bernardoff@ocamlpro.com>"
+authors: "Various"
+homepage: "http://github.com/vbmithr/ocaml-benchs"
+bug-reports: "http://github.com/vbmithr/ocaml-benchs"
+license: ""
+build: [
+  [ make ]
+]
+depends:
+  [ "ocamlfind" {build} "lwt" "async" "camlimages" ]
+dev-repo: "git://github.com/vbmithr/ocaml-benchs"
