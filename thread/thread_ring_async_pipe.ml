@@ -13,7 +13,8 @@ let make_th pipes n id =
   let rec do_n_times = function
     | 0 -> return ()
     | n ->
-      Pipe.transfer_id (fst pipes.(pred id)) (snd pipes.(id)) >>= fun () ->
+      Pipe.read @@ fst pipes.(pred id) >>= fun _ ->
+      Pipe.write (snd pipes.(id)) () >>= fun () ->
       do_n_times (pred n)
   in
   do_n_times n
