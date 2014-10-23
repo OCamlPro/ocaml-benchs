@@ -16,7 +16,7 @@ let make_th mvars n id =
   do_n_times n
 
 let main n =
-  let mvars = Array.make 503 @@ Lwt_stream.create () in
+  let mvars = Array.init 503 (fun _ -> Lwt_stream.create ()) in
   let ths = Array.init 503 @@ make_th mvars n in
   snd mvars.(0) @@ Some ();
   ths.(502)

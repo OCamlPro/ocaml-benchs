@@ -16,7 +16,7 @@ let make_th mvars n id =
   do_n_times n
 
 let main n =
-  let mvars = Array.make 503 @@ Lwt_mvar.create_empty () in
+  let mvars = Array.init 503 (fun _ -> Lwt_mvar.create_empty ()) in
   let ths = Array.init 503 @@ make_th mvars n in
   Lwt_mvar.put mvars.(0) () >>= fun () ->
   ths.(502)

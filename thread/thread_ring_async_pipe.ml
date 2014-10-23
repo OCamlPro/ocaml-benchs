@@ -16,7 +16,8 @@ let make_th p s n id =
   do_n_times n
 
 let main n =
-  let pipes = Array.create ~len:503 @@ Pipe.create () in
+  let pipes = Array.init 503
+      ~f:(fun _ -> Pipe.create ()) in
   let ths = Array.init 503
       ~f:(fun id ->
           let p, s = p_s id in
