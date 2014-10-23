@@ -1,28 +1,26 @@
 open Core.Std
 open Async.Std
 
-let p_s = function
-  | 0 -> 502, 1
-  | 502 -> 501, 0
-  | n -> pred n, succ n
+let pred = function
+  | 0 -> 502
+  | n -> pred n
 
-let make_th p s n id =
+let succ = function
+  | 502 -> 0
+  | n -> succ n
+
+let make_th pipes n id =
   let rec do_n_times = function
     | 0 -> return ()
     | n ->
-      Pipe.transfer_id (fst p) (snd s) >>= fun () ->
+      Pipe.transfer_id (fst pipes.(pred id)) (snd pipes.(id)) >>= fun () ->
       do_n_times (pred n)
   in
   do_n_times n
 
 let main n =
-  let pipes = Array.init 503
-      ~f:(fun _ -> Pipe.create ()) in
-  let ths = Array.init 503
-      ~f:(fun id ->
-          let p, s = p_s id in
-          let p, s = pipes.(p), pipes.(s) in
-          make_th p s n id)
+  let pipes = Array.init 503 ~f:(fun _ -> Pipe.create ()) in
+  let ths = Array.init 503 ~f:(make_th pipes n)
   in
   Pipe.write_without_pushback (snd pipes.(0)) ();
   ths.(502) >>= fun () ->

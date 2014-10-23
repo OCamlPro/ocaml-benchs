@@ -1,24 +1,27 @@
 open Lwt
 
-let make_th mvars n id =
-  let p, s =
-    match id with
-    | 0 -> 502, 1
-    | 502 -> 501, 0
-    | n -> pred n, succ n in
+let pred = function
+  | 0 -> 502
+  | n -> pred n
+
+let succ = function
+  | 502 -> 0
+  | n -> succ n
+
+let make_th streams n id =
   let rec do_n_times = function
     | 0 -> Lwt.return_unit
     | n ->
-      Lwt_stream.next @@ fst mvars.(p) >>= fun () ->
-      snd mvars.(s) @@ Some ();
+      Lwt_stream.next @@ fst streams.(pred id) >>= fun () ->
+      snd streams.(succ id) @@ Some ();
       do_n_times (pred n)
   in
   do_n_times n
 
 let main n =
-  let mvars = Array.init 503 (fun _ -> Lwt_stream.create ()) in
-  let ths = Array.init 503 @@ make_th mvars n in
-  snd mvars.(0) @@ Some ();
+  let streams = Array.init 503 (fun _ -> Lwt_stream.create ()) in
+  let ths = Array.init 503 @@ make_th streams n in
+  snd streams.(0) @@ Some ();
   ths.(502)
 
 let () =
