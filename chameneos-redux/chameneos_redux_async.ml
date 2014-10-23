@@ -4,9 +4,6 @@
    contributed by Milan Stanojevic, Jul 12 2009
 *)
 
-module List = ListLabels
-module String = StringLabels
-
 open Core.Std
 open Async.Std
 open Printf
