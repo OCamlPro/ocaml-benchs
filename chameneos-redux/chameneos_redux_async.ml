@@ -111,7 +111,7 @@ module Chameneos = struct
   let run t place =
     let rec loop () =
       Meeting_place.meet place t >>= function
-      | None -> return ()
+      | None -> Deferred.unit
       | Some other ->
         t.meetings <- t.meetings + 1;
         if t.id = other.id then t.meetings_with_self <- t.meetings_with_self + 1;
@@ -161,7 +161,7 @@ let work colors n =
   List.iter cs ~f:(fun c ->
       printf "%d" c.C.meetings; spell_int c.C.meetings_with_self; printf "\n";
       sum_meets := !sum_meets + c.C.meetings);
-  spell_int !sum_meets; printf "\n"; return ()
+  spell_int !sum_meets; printf "\n"; Deferred.unit
 ;;
 
 let main n =

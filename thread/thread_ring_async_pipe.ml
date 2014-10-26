@@ -11,7 +11,7 @@ let succ = function
 
 let make_th pipes n id =
   let rec do_n_times = function
-    | 0 -> return ()
+    | 0 -> Deferred.unit
     | n ->
       Pipe.read @@ fst pipes.(pred id) >>= fun _ ->
       Pipe.write (snd pipes.(id)) () >>= fun () ->
