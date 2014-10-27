@@ -1,6 +1,9 @@
 **/*.o
 **/*.a
 **/*.cm*
+**/_build
+**/*.build
+**/*.native
 chameneos-redux/chameneos_redux_async
 chameneos-redux/chameneos_redux_evtchn
 chameneos-redux/chameneos_redux_lwt

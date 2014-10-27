@@ -5,6 +5,13 @@ bin: [
   "chameneos-redux/chameneos_redux_async"
   "lexifi-g2pp/run.exe" {"lexifi-g2pp"}
   "sauvola/contrast" {"sauvola-contrast"}
+  "thread/thread_ring_async_pipe"
+  "thread/thread_ring_lwt_mvar"
+  "thread/thread_ring_lwt_stream"
+  "thread/thread_sleep_async"
+  "thread/thread_sleep_lwt"
+  "valet/_build/test_async.native" {"valet_test_async"}
+  "valet/_build/test_lwt.native" {"valet_test_lwt"}
 ]
 
 share: [
