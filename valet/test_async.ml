@@ -55,7 +55,6 @@ let () =
     (Printf.eprintf "Usage: %s n\n" Sys.argv.(0);
      Pervasives.exit 1
     );
-  Random.self_init ();
-  ignore @@ main @@ int_of_string Sys.argv.(1);
+  don't_wait_for @@ main @@ int_of_string Sys.argv.(1);
   never_returns @@ Scheduler.go ()
 

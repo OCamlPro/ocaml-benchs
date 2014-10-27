@@ -52,5 +52,4 @@ let () =
     (Printf.eprintf "Usage: %s n\n" Sys.argv.(0);
      exit 1
     );
-  Random.self_init ();
   Lwt_main.run @@ main @@ int_of_string Sys.argv.(1)
