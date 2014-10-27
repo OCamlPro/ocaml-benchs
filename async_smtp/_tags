@@ -1,0 +1,2 @@
+true: bin_annot, debug
+<*.*>: thread, package(async), package(async_smtp)

@@ -1,3 +1,5 @@
 PRJ benchs
 PKG lwt
 PKG async
+PKG async_smtp
+PKG email_message
