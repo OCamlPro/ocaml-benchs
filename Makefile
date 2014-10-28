@@ -4,6 +4,7 @@ all:
 	make -C sauvola all
 	make -C thread all
 	make -C valet all
+	make -C async_smtp all
 
 .PHONY: clean
 
@@ -13,3 +14,4 @@ clean:
 	make -C sauvola clean
 	make -C thread clean
 	make -C valet clean
+	make -C async_smtp clean

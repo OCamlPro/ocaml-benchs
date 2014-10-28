@@ -12,6 +12,7 @@ bin: [
   "thread/thread_sleep_lwt"
   "valet/_build/test_async.native" {"valet_test_async"}
   "valet/_build/test_lwt.native" {"valet_test_lwt"}
+  "async_smtp/_build/test_smtp.native" {"test_smtp"}
 ]
 
 share: [
