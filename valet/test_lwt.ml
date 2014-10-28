@@ -1,6 +1,8 @@
 open Test_lib
 open Lwt
 
+let doors_ref = ref None
+
 module Person : sig
   type t
 
@@ -42,6 +44,7 @@ let main n =
             ~action:(fun _ _ -> ())) in
     Array.map (fun d -> Door.connect_controller d controller) doors
   in
+  doors_ref := Some doors;
   let persons = Array.init n (fun id -> Person.create user_to_qr.(id) id) in
   Lwt.join @@
   Array.fold_left
