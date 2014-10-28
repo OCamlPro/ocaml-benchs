@@ -5,6 +5,7 @@ all:
 	make -C thread all
 	make -C valet all
 	make -C async_smtp all
+	make -C cohttp all
 
 .PHONY: clean
 
@@ -15,3 +16,4 @@ clean:
 	make -C thread clean
 	make -C valet clean
 	make -C async_smtp clean
+	make -C	cohttp clean

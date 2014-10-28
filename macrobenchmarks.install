@@ -13,6 +13,8 @@ bin: [
   "valet/_build/test_async.native" {"valet_test_async"}
   "valet/_build/test_lwt.native" {"valet_test_lwt"}
   "async_smtp/_build/test_smtp.native" {"test_smtp"}
+  "cohttp/_build/cohttp_async_bench.native" {"cohttp_async_bench"}
+  "cohttp/_build/cohttp_lwt_bench.native" {"cohttp_lwt_bench"}
 ]
 
 share: [
