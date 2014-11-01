@@ -1,3 +1,4 @@
+open Valet_core
 open Test_lib
 open Core.Std
 open Async.Std
@@ -32,7 +33,7 @@ end = struct
 end
 
 let main n =
-  let user_to_qr, qr_to_user = gen_db n in
+  let user_to_qr, qr_to_user = UserDB.create n in
   let readers = Array.init n (fun _ -> QRReader.create ()) in
   let controller =
     let controller = Controller.create qr_to_user in

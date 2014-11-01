@@ -4,3 +4,7 @@ PKG async
 PKG async_smtp
 PKG email_message
 PKG cohttp
+PKG uuidm
+PKG ocamlgraph
+S valet
+B valet/_build
