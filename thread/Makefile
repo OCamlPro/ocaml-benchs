@@ -1,11 +1,14 @@
-TARGETS=thread_sleep_lwt \
-	thread_sleep_async \
-	thread_ring_lwt_mvar \
-	thread_ring_lwt_stream \
-	thread_ring_async_pipe
+include ../Makefile.options
 
-all:\
-	$(TARGETS)
+ifeq ($(LWT), 1)
+TARGETS += thread_sleep_lwt thread_ring_lwt_mvar thread_ring_lwt_stream
+endif
+
+ifeq ($(ASYNC), 1)
+TARGETS	+= thread_sleep_async thread_ring_async_pipe
+endif
+
+all: $(TARGETS)
 
 thread_sleep_lwt: thread_sleep_lwt.ml
 	ocamlfind ocamlopt -package lwt.unix -linkpkg -o $@ $^

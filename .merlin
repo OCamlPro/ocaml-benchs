@@ -1,4 +1,6 @@
 PRJ benchs
+S valet
+B valet/_build
 PKG lwt
 PKG async
 PKG async_smtp
@@ -6,5 +8,5 @@ PKG email_message
 PKG cohttp
 PKG uuidm
 PKG ocamlgraph
-S valet
-B valet/_build
+PKG core
+PKG core_bench.inline_benchmarks

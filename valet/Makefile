@@ -1,8 +1,17 @@
+include ../Makefile.options
+
+ifeq ($(LWT), 1)
+TARGETS += test_lwt.native
+endif
+
+ifeq ($(ASYNC), 1)
+TARGETS	+= test_async.native
+endif
+
 OCAMLBUILD_OPTS=-use-ocamlfind
-SRC=test_lwt.native test_async.native valet_graph.native valet_graph_lwt.native
 
 all:
-	ocamlbuild $(OCAMLBUILD_OPTS) $(SRC)
+	ocamlbuild $(OCAMLBUILD_OPTS) $(TARGETS)
 
 .PHONY: clean
 clean:

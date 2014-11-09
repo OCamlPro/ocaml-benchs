@@ -1,5 +1,7 @@
-all:
-	ocamlfind ocamlopt -linkpkg -package camlimages.all contrast.ml -o contrast
+all: contrast
+
+contrast: contrast.ml
+	ocamlfind ocamlopt -linkpkg -package camlimages.all -o $@ $^
 
 run:
 	./contrast example1.jpg ex1

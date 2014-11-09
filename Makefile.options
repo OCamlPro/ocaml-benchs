@@ -1,0 +1,2 @@
+LWT ?= $(shell if ocamlfind query lwt >/dev/null 2>&1; then echo 1; fi)
+ASYNC ?= $(shell if ocamlfind query async >/dev/null 2>&1; then echo 1; fi)

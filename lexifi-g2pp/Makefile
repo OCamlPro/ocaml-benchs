@@ -26,8 +26,10 @@ FILES=\
   g2pp_calibration.ml \
   main.ml
 
-all:
-	ocamlopt -o run.exe -w +A $(FILES)
+all: run.exe
+
+run.exe: $(FILES)
+	ocamlopt -o $@ -w +A $^
 
 run:
 	time ./run.exe
