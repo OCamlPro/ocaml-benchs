@@ -6,9 +6,9 @@ all:
 	make -C valet all
 	make -C async_smtp all
 	make -C cohttp all
+	make -C core-micro all
 
 .PHONY: clean
-
 clean:
 	make -C chameneos-redux clean
 	make -C lexifi-g2pp clean
@@ -17,3 +17,4 @@ clean:
 	make -C valet clean
 	make -C async_smtp clean
 	make -C	cohttp clean
+	make -C core-micro clean

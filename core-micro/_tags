@@ -1,0 +1,1 @@
+<*>: thread, package(str), package(core), package(core_bench.inline_benchmarks)
