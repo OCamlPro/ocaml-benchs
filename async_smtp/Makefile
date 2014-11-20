@@ -1,6 +1,6 @@
-include ../Makefile.options
+ASYNC_SMTP ?= $(shell if ocamlfind query async_smtp >/dev/null 2>&1; then echo 1; fi)
 
-ifeq ($(ASYNC), 1)
+ifeq ($(ASYNC_SMTP), 1)
 TARGETS	+= test_smtp.native
 endif
 
