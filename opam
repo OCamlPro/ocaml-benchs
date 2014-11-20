@@ -17,5 +17,5 @@ depends:
     "uuidm"
     "ocplib-endian"
   ]
-depopts: [ "async" "async_smtp" ]
+depopts: [ "async" "async_smtp" "core_bench" ]
 dev-repo: "git://github.com/vbmithr/ocaml-benchs"
