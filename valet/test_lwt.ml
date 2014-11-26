@@ -56,4 +56,9 @@ let () =
     (Printf.eprintf "Usage: %s n\n" Sys.argv.(0);
      exit 1
     );
-  Lwt_main.run @@ main @@ int_of_string Sys.argv.(1)
+  Lwt_main.run @@ main @@ int_of_string Sys.argv.(1);
+  try
+    let fn = Sys.getenv "OCAML_GC_STATS" in
+    let oc = open_out fn in
+    Gc.print_stat oc
+  with _ -> ()

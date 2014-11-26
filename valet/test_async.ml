@@ -51,7 +51,12 @@ let main n =
   Deferred.all_ignore @@
   Array.fold
     ~f:(fun a p -> (Person.run p readers n)::a) ~init:[] persons >>= fun () ->
-  Shutdown.exit 0
+  (try
+    Sys.getenv "OCAML_GC_STATS" |> function
+    | Some fn -> Out_channel.with_file fn ~f:(fun oc -> Gc.print_stat oc)
+    | _ -> ()
+  with _ -> ());
+  Shutdown.exit 1
 
 
 let () =
