@@ -1,0 +1,10 @@
+Simple example of an echo server.
+
+- echo_server.native 
+   * server : receive connection and resend what it receives
+
+- echo_client.native 
+   * client connect to server and send 1000 string with random length
+
+- echo_merge.native 
+   * runs both the server and client

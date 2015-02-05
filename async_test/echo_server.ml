@@ -2,7 +2,7 @@ open Core.Std
 open Async.Std
        
 let log addr input = 
-  Log.Global.printf "%i bytes from (%s)" 
+  Log.Global.printf "(Server) received %i bytes from (%s)" 
     (String.length input)
     (Async_extra.Import.Socket.Address.to_string addr);
   input
@@ -13,6 +13,8 @@ let run () =
       ~on_handler_error:`Raise
       (Tcp.on_port 8765)
       (fun addr r w ->
+         Log.Global.printf "(Server) Connection from (%s)" 
+           (Async_extra.Import.Socket.Address.to_string addr);
          Pipe.transfer (Reader.pipe r) (Writer.pipe w) ~f:(log addr))
   in
   ignore (host_and_port : (Socket.Address.Inet.t, int) Tcp.Server.t Deferred.t)
