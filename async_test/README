@@ -1,10 +1,20 @@
-Simple example of an echo server.
+Simple example of async usage.
 
-- echo_server.native 
-   * server : receive connection and resend what it receives
+~ Use build_echo.sh to build an echo server
 
-- echo_client.native 
-   * client connect to server and send 1000 string with random length
+  - echo_server.native 
+     * server : receive connection and resend what it receives
 
-- echo_merge.native 
-   * runs both the server and client
+  - echo_client.native 
+     * client connect to server and send 1000 string with random length
+
+  - echo_merge.native 
+     * runs both the server and client
+
+~ Use build_rpc.sh to build an example using Rpc library
+
+  - rpc_server.native
+     * runs a server who implements a set of rpc
+
+  - rpc_client.native
+     * runs a client that query the server
