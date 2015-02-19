@@ -7,6 +7,7 @@ all:
 	make -C async_smtp all
 	make -C cohttp all
 	make -C core-micro all
+	make -C kb all
 
 .PHONY: clean
 clean:
@@ -18,3 +19,4 @@ clean:
 	make -C async_smtp clean
 	make -C	cohttp clean
 	make -C core-micro clean
+	make -C kb clean

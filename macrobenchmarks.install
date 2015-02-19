@@ -16,6 +16,8 @@ bin: [
   "?cohttp/_build/cohttp_async_bench.native" {"cohttp_async_bench"}
   "?cohttp/_build/cohttp_lwt_bench.native" {"cohttp_lwt_bench"}
   "?core-micro/_build/runner.native" {"core-inline-runner"}
+  "kb/kb.native" {"kb-bench"}
+  "kb/kb_no_exc.native" {"kb-no-exc-bench"}
 ]
 
 share: [
