@@ -6,9 +6,7 @@ let main n p =
     let open Server in
     let callback conn req body =
       respond_string ~status:`OK ~body:"Ok!" () in
-    let conn_closed conn () = ()
-    in
-    create ~address:"localhost" ~port:8080 { callback; conn_closed; }
+    create ~mode:(`TCP (`Port p)) (make ~callback ())
   in
   let get_n n =
     let rec inner = function
