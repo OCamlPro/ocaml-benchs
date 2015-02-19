@@ -1,11 +1,11 @@
 opam-version: "1.2"
 name: "macrobenchmarks"
 version: "1.0"
-maintainer: "Vincent Bernardoff <vincent.bernardoff@ocamlpro.com>"
+maintainer: "Pierre Chambart <pierre.chambart@ocamlpro.com>"
 authors: "Various"
-homepage: "http://github.com/vbmithr/ocaml-benchs"
-bug-reports: "http://github.com/vbmithr/ocaml-benchs"
-license: ""
+homepage: "https://github.com/OCamlPro/ocaml-benchs"
+bug-reports: "https://github.com/OCamlPro/ocaml-benchs/issues"
+license: "Various"
 build: [
   [ make ]
 ]
@@ -17,5 +17,9 @@ depends:
     "uuidm"
     "ocplib-endian"
   ]
-depopts: [ "async" "async_smtp" "core_bench" ]
-dev-repo: "git://github.com/vbmithr/ocaml-benchs"
+depopts: [ "async" "async_smtp" "core_bench" "cohttp" ]
+conflicts:
+  [
+    "cohttp" {< "0.15.0"}
+  ]
+dev-repo: "git@github.com:OCamlPro/ocaml-benchs.git"
