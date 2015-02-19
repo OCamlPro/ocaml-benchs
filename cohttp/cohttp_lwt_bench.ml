@@ -12,7 +12,7 @@ let main n p =
     let rec inner = function
       | n when n <= 0 -> Lwt.return_unit
       | n ->
-          Client.(get @@ Uri.of_string @@ "http://localhost:" ^ string_of_int p)
+          Client.(get @@ Uri.of_string @@ "http://127.0.0.1:" ^ string_of_int p)
           >>= fun (_, body) ->
           Cohttp_lwt_body.drain_body body >>= fun () ->
           inner (pred n)
