@@ -9,6 +9,7 @@ all:
 	make -C core-micro all
 	make -C kb all
 	make -C almabench all
+	make -C bdd all
 
 .PHONY: clean
 clean:
@@ -22,3 +23,4 @@ clean:
 	make -C core-micro clean
 	make -C kb clean
 	make -C almabench clean
+	make -C bdd clean

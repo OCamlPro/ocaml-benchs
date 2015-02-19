@@ -19,6 +19,7 @@ bin: [
   "kb/kb.native" {"kb-bench"}
   "kb/kb_no_exc.native" {"kb-no-exc-bench"}
   "almabench/almabench.native" {"almabench"}
+  "bdd/bdd.native" {"bdd-bench"}
 ]
 
 share: [
