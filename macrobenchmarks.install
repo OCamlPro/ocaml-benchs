@@ -18,6 +18,7 @@ bin: [
   "?core-micro/_build/runner.native" {"core-inline-runner"}
   "kb/kb.native" {"kb-bench"}
   "kb/kb_no_exc.native" {"kb-no-exc-bench"}
+  "almabench/almabench.native" {"almabench"}
 ]
 
 share: [

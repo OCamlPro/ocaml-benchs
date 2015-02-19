@@ -8,6 +8,7 @@ all:
 	make -C cohttp all
 	make -C core-micro all
 	make -C kb all
+	make -C almabench all
 
 .PHONY: clean
 clean:
@@ -20,3 +21,4 @@ clean:
 	make -C	cohttp clean
 	make -C core-micro clean
 	make -C kb clean
+	make -C almabench clean
