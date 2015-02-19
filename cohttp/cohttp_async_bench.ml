@@ -20,6 +20,11 @@ let main n p =
   in
   server () >>= fun server ->
   get_n n >>= fun () ->
+  (try
+     Sys.getenv "OCAML_GC_STATS" |> function
+     | Some fn -> Out_channel.with_file fn ~f:(fun oc -> Gc.print_stat oc)
+     | _ -> ()
+   with _ -> ());
   Shutdown.exit 0
 
 let () =
@@ -32,3 +37,4 @@ let () =
     then 8080 else int_of_string Sys.argv.(2) in
   don't_wait_for @@ main (int_of_string Sys.argv.(1)) port;
   never_returns @@ Scheduler.go ()
+

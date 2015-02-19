@@ -25,6 +25,11 @@ let main n =
   in
   Pipe.write_without_pushback (snd pipes.(0)) ();
   ths.(502) >>= fun () ->
+  (try
+     Sys.getenv "OCAML_GC_STATS" |> function
+     | Some fn -> Out_channel.with_file fn ~f:(fun oc -> Gc.print_stat oc)
+     | _ -> ()
+   with _ -> ());
   Shutdown.exit 0
 
 let () =

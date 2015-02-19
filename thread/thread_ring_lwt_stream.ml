@@ -27,3 +27,10 @@ let main n =
 let () =
   let n = if Array.length Sys.argv > 1 then int_of_string Sys.argv.(1) else 50000
   in Lwt_main.run @@ main n
+
+let () =
+  try
+    let fn = Sys.getenv "OCAML_GC_STATS" in
+    let oc = open_out fn in
+    Gc.print_stat oc
+  with _ -> ()

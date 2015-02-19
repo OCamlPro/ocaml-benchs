@@ -254,3 +254,10 @@ let () =
   let rms = 100. *. sqrt (rms /. (float (List.length l))) in
   Printf.printf "a = %.5f, b = %.5f, sigma = %.5f, nu = %.5f, rho = %.5f\n" g_a g_b g_sigma g_nu g_rho;
   Printf.printf "RMS = %.5f%%, re calculated RMS = %.5f%%\n" cr_root_mean_squared_error rms
+
+let () =
+  try
+    let fn = Sys.getenv "OCAML_GC_STATS" in
+    let oc = open_out fn in
+    Gc.print_stat oc
+  with _ -> ()

@@ -14,6 +14,11 @@ let main nb_thread nb_yield =
     | n -> th_list ((yield_th nb_yield)::acc) (pred n)
   in
   Deferred.all_ignore @@ th_list [] nb_thread >>= fun () ->
+  (try
+     Sys.getenv "OCAML_GC_STATS" |> function
+     | Some fn -> Out_channel.with_file fn ~f:(fun oc -> Gc.print_stat oc)
+     | _ -> ()
+   with _ -> ());
   Shutdown.exit 0
 
 let () =

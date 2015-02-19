@@ -29,5 +29,11 @@ let () =
     );
   let port = if Array.length Sys.argv < 3
     then 8080 else int_of_string Sys.argv.(2) in
-  Lwt_main.run @@ main (int_of_string Sys.argv.(1)) port;
+  Lwt_main.run @@ main (int_of_string Sys.argv.(1)) port
 
+let () =
+  try
+    let fn = Sys.getenv "OCAML_GC_STATS" in
+    let oc = open_out fn in
+    Gc.print_stat oc
+  with _ -> ()

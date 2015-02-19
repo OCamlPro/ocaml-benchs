@@ -19,3 +19,10 @@ let () =
   let nb_thread = if nb_args < 1 then 1_000_000 else int_of_string Sys.argv.(1) in
   let nb_yield = if nb_args < 2 then 10 else int_of_string Sys.argv.(2) in
   Lwt_main.run @@ main nb_thread nb_yield
+
+let () =
+  try
+    let fn = Sys.getenv "OCAML_GC_STATS" in
+    let oc = open_out fn in
+    Gc.print_stat oc
+  with _ -> ()

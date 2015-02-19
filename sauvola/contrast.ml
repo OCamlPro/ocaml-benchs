@@ -562,5 +562,11 @@ let _ =
                 Printf.printf "%f s sauvola local mono\n" (start8 -. start7);
         with
         | Stack_overflow -> Printf.printf "A stackoverflow occured, please increase stacksize with 'ulimit -s 65535'\n";
-        | Invalid_argument s -> Printf.printf "\n%s\n" s;
+        | Invalid_argument s -> Printf.printf "\n%s\n" s
 
+let () =
+  try
+    let fn = Sys.getenv "OCAML_GC_STATS" in
+    let oc = open_out fn in
+    Gc.print_stat oc
+  with _ -> ()
