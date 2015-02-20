@@ -43,7 +43,7 @@ let implementations =
    the async scheduler, and exits when the server stops.  *)
 let command =
   Command.async_basic
-    ~summary:"Hello World server"
+    ~summary:"Rpc server"
     Command.Spec.(
       empty +> Rpc_common.port_arg ()
     )

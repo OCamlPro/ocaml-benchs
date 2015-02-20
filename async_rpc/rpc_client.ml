@@ -6,7 +6,7 @@ let say_hello ~host ~port =
   Rpc_common.with_rpc_conn (fun conn ->
     Rpc.Rpc.dispatch_exn Rpc_protocol.hello_rpc conn "Hi"
     >>| fun response ->
-    printf "%s\n%!" response
+    printf "%s \n%!" response
   )
     ~host ~port
 
