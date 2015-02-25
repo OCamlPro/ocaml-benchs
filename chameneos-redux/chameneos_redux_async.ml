@@ -171,6 +171,12 @@ let main n =
   printf "\n";
   work [ C.Blue; C.Red; C.Yellow; C.Red; C.Yellow; C.Blue; C.Red; C.Yellow; C.Red; C.Blue ] n >>= fun () ->
   printf "\n";
+  let () =
+    try
+      let fn = Sys.getenv "OCAML_GC_STATS" in
+      let oc = open_out fn in
+      Gc.print_stat oc
+    with _ -> () in
   Shutdown.exit 0
 
 let () =

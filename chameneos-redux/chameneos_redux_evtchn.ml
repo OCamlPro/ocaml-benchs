@@ -119,4 +119,11 @@ let _ =
     if Array.length Sys.argv < 2 then 600 else int_of_string Sys.argv.(1) in
   print_complements ();
   Game.play [B; R; Y] max_meetings;
-  Game.play [B; R; Y; R; Y; B; R; Y; R; B] max_meetings;
+  Game.play [B; R; Y; R; Y; B; R; Y; R; B] max_meetings
+
+let () =
+  try
+    let fn = Sys.getenv "OCAML_GC_STATS" in
+    let oc = open_out fn in
+    Gc.print_stat oc
+  with _ -> ()
