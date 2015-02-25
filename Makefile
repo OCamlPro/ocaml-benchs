@@ -10,6 +10,7 @@ all:
 	make -C kb all
 	make -C almabench all
 	make -C bdd all
+	make -C sequence all
 
 .PHONY: clean
 clean:
@@ -24,3 +25,4 @@ clean:
 	make -C kb clean
 	make -C almabench clean
 	make -C bdd clean
+	make -C sequence clean

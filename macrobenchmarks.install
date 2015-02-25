@@ -20,6 +20,8 @@ bin: [
   "kb/kb_no_exc.native" {"kb-no-exc-bench"}
   "almabench/almabench.native" {"almabench"}
   "bdd/bdd.native" {"bdd-bench"}
+  "sequence/test.native" {"sequence-bench"}
+  "sequence/test_cps.native" {"sequence-cps-bench"}
 ]
 
 share: [
