@@ -3,17 +3,38 @@ open Async.Std
 
 type two_int = { a:int; b:int } with bin_io
 
+type t1 = A of int | B of float | C of string with bin_io
+
+type record = {
+  i:int;
+  i64:int64;
+  f:float;
+  str:string;
+  b:bool;
+  farr:float list;
+  some:t1;
+  iopt:int option
+} with bin_io
+
+let debug = ref false
+
+let debug_arg () =
+  Command.Spec.(
+    flag "-debug" no_arg ~doc: " Print debug infos"
+  )
+
 let port_arg () =
   Command.Spec.(
     flag "-port" (optional_with_default 8124 int)
       ~doc:" Broker's port"
   )
 
-let host_arg () =
+let nbr_arg () =
   Command.Spec.(
-    flag "-hostname" (optional_with_default "127.0.0.1" string)
-      ~doc:" Broker's hostname"
+    flag "-nbr" (optional_with_default 10 int)
+      ~doc:" Number of client's query"
   )
+
 let with_rpc_conn f ~host ~port =
   Tcp.with_connection
     (Tcp.to_host_and_port host port)
@@ -25,8 +46,8 @@ let with_rpc_conn f ~host ~port =
       | Ok conn   -> f conn
     )
 
-let start_server ?(stop=Deferred.never ()) ~implementations ~port () =
-  Log.Global.info "Starting server on %d" port;
+let start_server ~implementations ~port run_client nbr =
+  if !debug then Log.Global.info "Starting server on %d" port;
   let implementations =
     Rpc.Implementations.create_exn ~implementations
       ~on_unknown_rpc:(`Call (fun ~rpc_tag ~version ->
@@ -44,7 +65,7 @@ let start_server ?(stop=Deferred.never ()) ~implementations ~port () =
         ~implementations
     )
   >>= fun server ->
-  Log.Global.info "Server started, waiting for close";
-  Deferred.any
-    [ (stop >>= fun () -> Tcp.Server.close server)
-    ; Tcp.Server.close_finished server ]
+  if !debug then Log.Global.info "Server started, waiting for close";
+  (* Run Client *)
+  run_client ~port nbr
+  >>= fun () -> Tcp.Server.close server

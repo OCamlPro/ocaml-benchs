@@ -25,3 +25,9 @@ let add_rpc = Rpc.Rpc.create
   ~version:0
   ~bin_query:Rpc_common.bin_two_int
   ~bin_response:Int.bin_t            
+
+let record_rpc = Rpc.Rpc.create
+  ~name:"record"
+  ~version:0
+  ~bin_query:Rpc_common.bin_record
+  ~bin_response:Rpc_common.bin_record
