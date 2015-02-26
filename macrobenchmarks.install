@@ -22,6 +22,8 @@ bin: [
   "bdd/bdd.native" {"bdd-bench"}
   "sequence/test.native" {"sequence-bench"}
   "sequence/test_cps.native" {"sequence-cps-bench"}
+  "?core_tests/core_kernel_test.log"
+  "?core_tests/core_test.log"
 ]
 
 share: [

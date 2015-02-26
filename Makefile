@@ -1,3 +1,5 @@
+include Makefile.options
+
 all:
 	make -C chameneos-redux all
 	make -C lexifi-g2pp all
@@ -11,6 +13,9 @@ all:
 	make -C almabench all
 	make -C bdd all
 	make -C sequence all
+ifeq ($(CORE), 1)
+	make -C core_test all
+endif
 
 .PHONY: clean
 clean:
@@ -26,3 +31,5 @@ clean:
 	make -C almabench clean
 	make -C bdd clean
 	make -C sequence clean
+	make -C core_test clean
+
