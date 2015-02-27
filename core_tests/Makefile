@@ -15,6 +15,6 @@ core_test.log: core_test.native
 	mv inline_tests.log $@
 
 clean:
-	rm -rf *.cm* *.native *.o *.log
+	rm -f *.cm* *.native *.o *.log
 
 .PHONY: all clean

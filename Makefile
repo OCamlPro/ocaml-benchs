@@ -13,11 +13,8 @@ all:
 	make -C almabench all
 	make -C bdd all
 	make -C sequence all
-ifeq ($(CORE), 1)
-	make -C core_test all
-endif
 
-.PHONY: clean
+.PHONY: all clean test
 clean:
 	make -C chameneos-redux clean
 	make -C lexifi-g2pp clean
@@ -33,3 +30,7 @@ clean:
 	make -C sequence clean
 	make -C core_test clean
 
+test:
+ifeq ($(CORE), 1)
+	make -C core_test all
+endif
