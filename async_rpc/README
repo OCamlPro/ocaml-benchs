@@ -1,0 +1,9 @@
+Simple example of async usage.
+
+~ Use build_rpc.sh to build an example using Rpc library
+
+  - rpc_server.native
+     * runs a server who implements a set of rpc
+
+  - rpc_client.native
+     * runs a client that query the server
