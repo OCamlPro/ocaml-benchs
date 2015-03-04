@@ -13,6 +13,9 @@ all:
 	make -C almabench all
 	make -C bdd all
 	make -C sequence all
+ifeq ($(ASYNC), 1)
+	make -C async_echo all
+endif
 
 .PHONY: all clean test
 clean:
@@ -29,6 +32,7 @@ clean:
 	make -C bdd clean
 	make -C sequence clean
 	make -C core_test clean
+	make -C async_echo clean
 
 test:
 ifeq ($(CORE), 1)
