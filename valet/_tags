@@ -4,3 +4,4 @@ true: bin_annot, debug
 <valet_react.*>: package(react)
 <test_lwt.*>: package(react), package(uuidm), package(unix), package(ocplib-endian), package(lwt.unix)
 <test_async.*>: thread, package(react), package(uuidm), package(unix), package(ocplib-endian), package(async)
+<test_lib.*>: package(react)
