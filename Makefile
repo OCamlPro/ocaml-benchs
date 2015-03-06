@@ -6,7 +6,7 @@ all:
 	make -C valet all
 	make -C async_smtp all
 	make -C cohttp all
-	make -C core-micro all
+	make -C core_micro all
 	make -C kb all
 	make -C almabench all
 	make -C bdd all
@@ -22,7 +22,7 @@ clean:
 	make -C valet clean
 	make -C async_smtp clean
 	make -C	cohttp clean
-	make -C core-micro clean
+	make -C core_micro clean
 	make -C kb clean
 	make -C almabench clean
 	make -C bdd clean
