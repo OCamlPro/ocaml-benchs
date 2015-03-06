@@ -1,14 +1,4 @@
-include ../Makefile.options
-
-TARGETS=chameneos_redux_th chameneos_redux_evtchn
-
-ifeq ($(LWT), 1)
-TARGETS += chameneos_redux_lwt
-endif
-
-ifeq ($(ASYNC), 1)
-TARGETS	+= chameneos_redux_async
-endif
+TARGETS=chameneos_redux_th chameneos_redux_evtchn chameneos_redux_lwt chameneos_redux_async
 
 all: $(TARGETS)
 

@@ -1,12 +1,5 @@
-include ../Makefile.options
-
-ifeq ($(LWT), 1)
-TARGETS += thread_sleep_lwt thread_ring_lwt_mvar thread_ring_lwt_stream
-endif
-
-ifeq ($(ASYNC), 1)
-TARGETS	+= thread_sleep_async thread_ring_async_pipe
-endif
+TARGETS= thread_sleep_lwt thread_ring_lwt_mvar thread_ring_lwt_stream \
+	 thread_sleep_async thread_ring_async_pipe
 
 all: $(TARGETS)
 
