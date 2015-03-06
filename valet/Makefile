@@ -1,12 +1,4 @@
-include ../Makefile.options
-
-ifeq ($(LWT), 1)
-TARGETS += test_lwt.native
-endif
-
-ifeq ($(ASYNC), 1)
-TARGETS	+= test_async.native
-endif
+TARGETS= test_lwt.native test_async.native
 
 OCAMLBUILD_OPTS=-use-ocamlfind
 

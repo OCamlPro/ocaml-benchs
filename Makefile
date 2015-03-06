@@ -1,5 +1,3 @@
-include Makefile.options
-
 all:
 	make -C chameneos-redux all
 	make -C lexifi-g2pp all
@@ -8,14 +6,12 @@ all:
 	make -C valet all
 	make -C async_smtp all
 	make -C cohttp all
-	make -C core-micro all
+	make -C core_micro all
 	make -C kb all
 	make -C almabench all
 	make -C bdd all
 	make -C sequence all
-ifeq ($(ASYNC), 1)
 	make -C async_echo all
-endif
 
 .PHONY: all clean test
 clean:
@@ -26,7 +22,7 @@ clean:
 	make -C valet clean
 	make -C async_smtp clean
 	make -C	cohttp clean
-	make -C core-micro clean
+	make -C core_micro clean
 	make -C kb clean
 	make -C almabench clean
 	make -C bdd clean
@@ -35,6 +31,4 @@ clean:
 	make -C async_echo clean
 
 test:
-ifeq ($(CORE), 1)
 	make -C core_test all
-endif
