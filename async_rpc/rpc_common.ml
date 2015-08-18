@@ -31,7 +31,7 @@ let port_arg () =
 
 let nbr_arg () =
   Command.Spec.(
-    flag "-nbr" (optional_with_default 10 int)
+    flag "-nbr" (optional_with_default 3000 int)
       ~doc:" Number of client's query"
   )
 
