@@ -40,7 +40,7 @@ and r2d       = 180.0 /. pic
 and gaussk    = 0.01720209895
 
 (* number of days to include in test *)
-let test_loops  = 5  (* was: 20 *)
+let test_loops  = 100  (* was: 20 *)
 and test_length = 36525
 
 (* sin and cos of j2000 mean obliquity (iau 1976) *)
