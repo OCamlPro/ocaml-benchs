@@ -16,6 +16,7 @@ depends:
     "react"
     "uuidm"
     "ocplib-endian"
+    "yojson"
   ]
 depopts: [ "async" "async_smtp" "core_bench" "cohttp" ]
 conflicts:
