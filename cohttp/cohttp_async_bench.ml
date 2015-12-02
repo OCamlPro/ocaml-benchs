@@ -34,7 +34,8 @@ let () =
       Pervasives.exit 1
     );
   let port = if Array.length Sys.argv < 3
-    then 8080 else int_of_string Sys.argv.(2) in
+    then (Random.self_init (); Random.int 10000 + 1024)
+    else int_of_string Sys.argv.(2) in
   don't_wait_for @@ main (int_of_string Sys.argv.(1)) port;
   never_returns @@ Scheduler.go ()
 
